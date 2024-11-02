@@ -8,11 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Roomie {
+struct Roomie: Identifiable {
     let id = UUID()
     var name: String
     var amountOwed: Float
     
+    
+    // Example usage for testing
     static var roomie1: Roomie = Roomie(name: "Lizzie", amountOwed: 0)
     static var roomie2: Roomie = Roomie(name: "Charlotte", amountOwed: 0)
     static var roomie3: Roomie = Roomie(name: "Caitlin", amountOwed: 0)

@@ -41,7 +41,9 @@ struct HomeScreenView: View {
                 Text("Amount Owed")
                     .font(.subheadline)
                     .foregroundColor(Color.secondary)
-                Text("00.00")
+                
+                // TODO: remove hard-coding here
+                Text("$"+RoomieGroup.house.roomies[0].amountOwed.description)
                     .font(.largeTitle)
                 
                 HStack {
@@ -76,10 +78,10 @@ extension HomeScreenView {
     struct HeaderBar: View {
         var body: some View {
             HStack { // HEADER
-                Text("DATE 00")
+                Text(DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .none))
                 Spacer()
                 Image(systemName: "person.crop.circle")
-                Text("NAME")
+                Text(RoomieGroup.house.roomies[0].name)
             }
         }
     }
