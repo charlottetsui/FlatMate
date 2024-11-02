@@ -11,16 +11,20 @@ struct LandScreenView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image("Land Screen Image")
+                Image("LandScreenImage")
+                    .resizable()
+                    .scaledToFit()
+                Spacer()
                 Text("Manage your shared expenses with ease.")
                     .fontWeight(.bold)
                     .font(.largeTitle)
                 NavigationLink {
                     HomeScreenView()
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     Text("Continue")
+                        .padding()
                 }
-
             }
         }
     }
