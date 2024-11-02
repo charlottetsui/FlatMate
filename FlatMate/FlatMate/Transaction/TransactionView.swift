@@ -14,6 +14,8 @@ struct TransactionView: View {
             TransactionBox()
             TransactionBox()
             TransactionBox()
+            TransactionBox()
+            TransactionBox()
         }
         .padding()
     }
