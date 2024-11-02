@@ -20,7 +20,7 @@ struct MainView: View {
                     Label("Transaction", systemImage: "arrow.left.arrow.right")
                 }
             
-            ProfileView()
+            TransactionView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
@@ -45,7 +45,18 @@ struct HomeScreenView: View {
                 // TODO: remove hard-coding here
                 Text("$"+RoomieGroup.house.roomies[0].amountOwed.description)
                     .font(.largeTitle)
+                
+                HStack {
+                    Image(systemName: "square.and.pencil")
+                    Text("Pay Expense")
+                    Spacer()
+                    Image(systemName: "plus.square.on.square")
+                    Text("Add Expense")
+                }
+                
                 Spacer().frame(height: 200)
+                
+                
             }
             
             //// Roommate Group Summary
@@ -75,18 +86,3 @@ extension HomeScreenView {
         }
     }
 }
-
-// Placeholder Views for other tabs
-struct SettingsView: View {
-    var body: some View {
-        Text("Settings Screen")
-    }
-}
-
-struct ProfileView: View {
-    var body: some View {
-        Text("Profile Screen")
-    }
-}
-
-
