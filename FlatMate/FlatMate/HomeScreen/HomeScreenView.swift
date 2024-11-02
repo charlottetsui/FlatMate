@@ -60,7 +60,6 @@ struct HomeScreenView: View {
 }
 
 extension HomeScreenView {
-    
     struct HeaderBar: View {
         var body: some View {
             HStack { // HEADER
