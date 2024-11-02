@@ -34,7 +34,7 @@ extension GroupSummaryView {
                 Text(name)
                     .font(.headline)
                 Spacer()
-                Text(expense)
+                Text("$"+expense)
                     .font(.subheadline)
             }
             .padding(25) // padding for background

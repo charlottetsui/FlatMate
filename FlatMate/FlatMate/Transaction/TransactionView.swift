@@ -10,10 +10,9 @@ import SwiftUI
 struct TransactionView: View {
     var body: some View {
         ScrollView {
-            TransactionBox()
-            TransactionBox()
-            TransactionBox()
-            TransactionBox()
+            ForEach(RoomieGroup.house.bills, id: \.id) {
+                bill in TransactionBox(bill: bill)
+            }
         }
         .padding()
     }
@@ -26,18 +25,19 @@ struct TransactionView: View {
 extension TransactionView {
     
     struct TransactionBox: View {
+        var bill: Bill
         var body: some View {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("EXPENSE")
+                    Text(bill.name.description)
                         .fontWeight(.bold)
                         .padding(.vertical)
-                    Text("DESCRIPTION")
+                    Text(bill.name.description)
                         .font(.caption)
                         .foregroundColor(Color.secondary)
                 }
                 Spacer()
-                Text("AMOUNT")
+                Text("$"+bill.amount.description)
             }
             .padding(15)
             .background(Color.secondary.opacity(0.2))
