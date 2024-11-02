@@ -11,7 +11,7 @@ import SwiftUI
 struct FlatMateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LandScreenView()
         }
     }
 }

@@ -15,9 +15,9 @@ struct MainView: View {
                     Label("Home", systemImage: "house.fill")
                 }
             
-            SettingsView()
+            TransactionView()
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape.fill")
+                    Label("Transaction", systemImage: "arrow.left.arrow.right")
                 }
             
             ProfileView()
@@ -29,13 +29,14 @@ struct MainView: View {
 }
 
 struct HomeScreenView: View {
+    @State var index = 0
+    
     var body: some View {
         NavigationStack {
             VStack {
                 HeaderBar()
                 Divider()
                 
-                // User View
                 Spacer().frame(height: 100)
                 Text("Amount Owed")
                     .font(.subheadline)
@@ -46,7 +47,7 @@ struct HomeScreenView: View {
                 Spacer().frame(height: 200)
             }
             
-            // Roommate Group Summary
+            //// Roommate Group Summary
             Divider()
             ScrollView(showsIndicators: false) {
                 GroupSummaryView()
@@ -61,6 +62,7 @@ struct HomeScreenView: View {
 }
 
 extension HomeScreenView {
+    
     struct HeaderBar: View {
         var body: some View {
             HStack { // HEADER
@@ -85,4 +87,5 @@ struct ProfileView: View {
         Text("Profile Screen")
     }
 }
+
 
