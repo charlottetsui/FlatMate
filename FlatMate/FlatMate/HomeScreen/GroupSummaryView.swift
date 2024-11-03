@@ -10,10 +10,10 @@ import SwiftUI
 struct GroupSummaryView: View {
     var body: some View {
         VStack {
-            ForEach(RoomieGroup.house.roomies, id: \.id) {
-                roomie in RoomiesDetail(name: roomie.name, expense: "0.00")
-            }
-            RoomiesDetail(name: "TOTAL", expense: "0.00")
+            ForEach(0..<RoomieGroup.flat.roomies.count, id: \.self) { i in
+                RoomiesDetail(name: RoomieGroup.flat.roomies[i].name, expense: RoomieGroup.flat.roommateBalances[i].description)
+                        }
+            RoomiesDetail(name: "TOTAL", expense: RoomieGroup.flat.totalAmountDue.description)
         }
         .padding()
     }

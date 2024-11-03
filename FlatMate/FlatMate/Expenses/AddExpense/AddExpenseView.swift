@@ -46,9 +46,9 @@ struct AddExpenseView: View {
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                         Spacer()
-                        // TODO: FUNCTION CHECK!!
+                        // TODO: FUNCTION CHECK - remove hard coding?
                         Button {
-                            vm.addExpense(name: expenseName, balance: expenseAmount, numRoommates: 1)
+                            vm.addExpense(name: expenseName, balance: expenseAmount, numRoommates: 4)
                             showSheet = false
                         } label: {
                             Text("Continue")

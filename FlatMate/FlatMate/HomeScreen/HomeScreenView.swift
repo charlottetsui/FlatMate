@@ -79,13 +79,13 @@ extension HomeScreenView {
                     .font(.title3)
                 Spacer()
                 NavigationLink {
-                    //
+                    
                 } label: {
                     Image(systemName: "person.crop.circle")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                    Text(RoomieGroup.house.roomies[0].name)
+                    Text(RoomieGroup.flat.roomies[0].name)
                         .font(.title3)
                 }
             }
