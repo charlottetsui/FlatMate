@@ -27,7 +27,7 @@ struct LandScreenView: View {
                     .padding(10)
                 Spacer()
                 NavigationLink {
-                    MainView()
+                    SignUpView()
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     Text("Continue")
