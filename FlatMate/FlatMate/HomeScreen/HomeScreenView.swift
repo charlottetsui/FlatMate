@@ -79,7 +79,6 @@ extension HomeScreenView {
                     .font(.title3)
                 Spacer()
                 NavigationLink {
-                    
                 } label: {
                     Image(systemName: "person.crop.circle")
                         .resizable()
