@@ -11,12 +11,13 @@ struct RoomieGroup {
     var roomies: [Roomie]
     var bills: [Bill]
     
-    // total amount due across all bills
+    // Total amount due across all bills
     var totalAmountDue: Double {
        let total = bills.reduce(0) {$0 + $1.balance}
         return Double(total)
     }
     
+    // Array of balances owed by each individual roommate
     var roommateBalances: [Double] {
         var bals: [Double] = Array(repeating: 0.0, count: roomies.count)
         for i in 0..<(roomies.count){ // Loop over roommates
@@ -29,8 +30,7 @@ struct RoomieGroup {
         return bals
     }
     
-    // Example usages for testing
-
+    // Example use for testing
     static var flat: RoomieGroup = RoomieGroup(roomies: [Roomie(name: "Lizzie", index: 0),
                                                   Roomie(name: "Charlotte", index: 1),
                                                   Roomie(name: "Caitlin", index: 2),

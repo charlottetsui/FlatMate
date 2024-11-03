@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoommateNavigationView: View {
+    @Binding var flat: RoomieGroup
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -15,7 +16,7 @@ struct RoommateNavigationView: View {
                     Image(systemName: "person.crop.circle")
                         .resizable().frame(width: 50, height: 50)
                     
-                    Text("NAME")
+                    Text(flat.roomies[0].name)
                     Spacer()
                 }
                 .padding(50)
@@ -26,6 +27,6 @@ struct RoommateNavigationView: View {
     }
 }
 
-#Preview {
-    RoommateNavigationView()
-}
+//#Preview {
+//    RoommateNavigationView()
+//}

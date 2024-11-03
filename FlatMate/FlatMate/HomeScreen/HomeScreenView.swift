@@ -140,7 +140,7 @@ struct MainView: View {
                     Label("Transaction", systemImage: "arrow.left.arrow.right")
                 }
             
-            RoommateNavigationView()
+            RoommateNavigationView(flat: $flat)
                 .tabItem {
                     Label("My Group", systemImage: "person.crop.circle")
                 }
