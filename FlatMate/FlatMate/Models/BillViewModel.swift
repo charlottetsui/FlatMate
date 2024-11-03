@@ -8,34 +8,37 @@
 
 import SwiftUI
 
-func addExpense(name: String, balance: Double, numRoommates: Int) -> Bill{
-    let splitBalance: Double = balance / Double(numRoommates)
-    let balanceBreakdown = Array(repeating: splitBalance, count: numRoommates)
+class BillViewModel: ObservableObject {
     
-    let newBill: Bill = Bill(name: name, balance: balance, balanceBreakdown: balanceBreakdown)
-    
-    return newBill
-}
-
-func makePayment(@Binding bill: Bill, amount: Double, userIndex: Int){
-    var userBalance: Double = bill.balanceBreakdown[userIndex]
-    
-    // Bill is already fully paid
-    if (userBalance <= 0){
-        bill.paid = true
-        return
+    func addExpense(name: String, balance: Double, numRoommates: Int) -> Bill{
+        let splitBalance: Double = balance / Double(numRoommates)
+        let balanceBreakdown = Array(repeating: splitBalance, count: numRoommates)
+        
+        let newBill: Bill = Bill(name: name, balance: balance, balanceBreakdown: balanceBreakdown)
+        
+        return newBill
     }
     
-    // User is trying to pay more than they owe
-    if (userBalance < amount){
-        bill.balanceBreakdown[userIndex] = 0.0
-        bill.balance -= userBalance
-        return
+    func makePayment(@Binding bill: Bill, amount: Double, userIndex: Int){
+        var userBalance: Double = bill.balanceBreakdown[userIndex]
+        
+        // Bill is already fully paid
+        if (userBalance <= 0){
+            bill.paid = true
+            return
+        }
+        
+        // User is trying to pay more than they owe
+        if (userBalance < amount){
+            bill.balanceBreakdown[userIndex] = 0.0
+            bill.balance -= userBalance
+            return
+        }
+        
+        // Regular use case
+        bill.balance -= amount
+        bill.balanceBreakdown[userIndex] = (userBalance - amount)
     }
-    
-    // Regular use case
-    bill.balance -= amount
-    bill.balanceBreakdown[userIndex] = (userBalance - amount)
 }
 
 

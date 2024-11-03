@@ -55,7 +55,7 @@ struct HomeScreenView: View {
         }
         .padding()
         .sheet(isPresented: $showAddExpense) {
-            AddExpenseView()
+            AddExpenseView(showSheet: $showAddExpense)
                 .presentationDetents([.fraction(0.5)])
         }
     }
@@ -71,9 +71,14 @@ extension HomeScreenView {
         var body: some View {
             HStack { // HEADER
                 Text(DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none))
+                    .font(.title3)
                 Spacer()
                 Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
                 Text(RoomieGroup.house.roomies[0].name)
+                    .font(.title3)
             }
         }
     }

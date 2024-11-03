@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AddExpenseView: View {
+    @Binding var showSheet: Bool
     @State var expenseAmount = 0.0
     @State var expenseName = "Groceries"
     @State var expenseDescription = "Description"
+    @StateObject var vm = BillViewModel()
     
     var body: some View {
         ZStack {
@@ -44,12 +46,15 @@ struct AddExpenseView: View {
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                         Spacer()
+                        // TODO: FUNCTION CHECK!!
                         Button {
-                            //
+                            vm.addExpense(name: expenseName, balance: expenseAmount, numRoommates: 1)
+                            showSheet = false
                         } label: {
                             Text("Continue")
                                 .fontWeight(.bold)
                                 .padding()
+                                .frame(width: 375)
                                 .background(Color.red)
                                 .foregroundColor(Color.white)
                                 .cornerRadius(15)
@@ -64,5 +69,5 @@ struct AddExpenseView: View {
 }
 
 #Preview {
-    AddExpenseView()
+    AddExpenseView(showSheet: .constant(true))
 }
