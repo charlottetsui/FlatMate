@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    @Binding var flat: RoomieGroup
     @State var index = 0
     @State var showAddExpense = false
     @State var showPayExpense = false
@@ -24,7 +25,7 @@ struct HomeScreenView: View {
                     .foregroundColor(Color.secondary)
                 
                 // TODO: remove hard-coding here
-                Text("$0.00")
+                Text(flat.roommateBalances[0].description)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(25)
@@ -51,16 +52,16 @@ struct HomeScreenView: View {
             // Roommate Group Summary
             Divider()
             ScrollView(showsIndicators: false) {
-                GroupSummaryView()
+                GroupSummaryView(flat: $flat)
             }
         }
         .padding()
         .sheet(isPresented: $showAddExpense) {
-            AddExpenseView(showSheet: $showAddExpense)
+            AddExpenseView(flat: $flat, showSheet: $showAddExpense)
                 .presentationDetents([.fraction(0.5)])
         }
         .sheet(isPresented: $showPayExpense) {
-            PayExpenseView(showSheet: $showPayExpense)
+            PayExpenseView(flat: $flat, showSheet: $showPayExpense)
                 .presentationDetents([.fraction(0.5)])
         }
     }
@@ -119,14 +120,22 @@ extension HomeScreenView {
 
 // TabBar View
 struct MainView: View {
+    @State var flat: RoomieGroup = RoomieGroup(roomies: [Roomie(name: "Lizzie", index: 0),
+                                                         Roomie(name: "Charlotte", index: 1),
+                                                         Roomie(name: "Caitlin", index: 2),
+                                                         Roomie(name: "Caroline", index: 3)],
+                                               bills: [Bill(name: "Electricity", balance: 300, balanceBreakdown: [75, 75, 75, 75]),
+                                                       Bill(name: "Trash", balance: 50, balanceBreakdown: [12.50, 12.50, 12.50, 12.50]),
+                                                       Bill(name: "Water", balance: 100, balanceBreakdown: [25, 25, 25, 25]),
+                                                       Bill(name: "Recycling", balance: 25, balanceBreakdown: [6.25, 6.25, 6.25, 6.25])])
     var body: some View {
         TabView {
-            HomeScreenView()
+            HomeScreenView(flat: $flat)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             
-            TransactionView()
+            TransactionView(flat: $flat)
                 .tabItem {
                     Label("Transaction", systemImage: "arrow.left.arrow.right")
                 }

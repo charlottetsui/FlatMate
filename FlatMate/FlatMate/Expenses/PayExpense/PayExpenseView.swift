@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PayExpenseView: View {
+    @Binding var flat: RoomieGroup
     @Binding var showSheet: Bool
     @State var expenseAmount = 0.0
     @State var expenseName = ""
@@ -70,7 +71,7 @@ struct PayExpenseView: View {
     }
 }
 
-#Preview {
-    PayExpenseView(showSheet: .constant(true))
-}
+//#Preview {
+ //   PayExpenseView(showSheet: .constant(true))
+//}
 

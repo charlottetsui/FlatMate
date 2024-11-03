@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TransactionView: View {
+    @Binding var flat: RoomieGroup
     var body: some View {
         ScrollView {
-            ForEach(RoomieGroup.flat.bills, id: \.id) {
+            ForEach(flat.bills, id: \.id) {
                 bill in TransactionBox(bill: bill)
             }
         }
@@ -18,9 +19,9 @@ struct TransactionView: View {
     }
 }
 
-#Preview {
-    TransactionView()
-}
+//#Preview {
+ //   TransactionView()
+//}
 
 extension TransactionView {
     

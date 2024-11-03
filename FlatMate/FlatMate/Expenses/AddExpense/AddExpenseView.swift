@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddExpenseView: View {
+    @Binding var flat: RoomieGroup
     @Binding var showSheet: Bool
     @State var expenseAmount = 0.0
     @State var expenseName = ""
@@ -48,7 +49,7 @@ struct AddExpenseView: View {
                         Spacer()
                         // TODO: FUNCTION CHECK - remove hard coding?
                         Button {
-                            vm.addExpense(name: expenseName, balance: expenseAmount, numRoommates: 4)
+                            vm.addExpense($bills: $flat.bills, name: expenseName, balance: expenseAmount, numRoommates: 4)
                             showSheet = false
                         } label: {
                             Text("Continue")
@@ -68,6 +69,6 @@ struct AddExpenseView: View {
     }
 }
 
-#Preview {
-    AddExpenseView(showSheet: .constant(true))
-}
+//#Preview {
+//    AddExpenseView(showSheet: .constant(true))
+//}

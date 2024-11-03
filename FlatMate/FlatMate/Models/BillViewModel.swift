@@ -10,13 +10,13 @@ import SwiftUI
 
 class BillViewModel: ObservableObject {
     
-    func addExpense(name: String, balance: Double, numRoommates: Int){
+    func addExpense(@Binding bills: [Bill], name: String, balance: Double, numRoommates: Int){
         let splitBalance: Double = balance / Double(numRoommates)
         let balanceBreakdown = Array(repeating: splitBalance, count: numRoommates)
         
         let newBill: Bill = Bill(name: name, balance: balance, balanceBreakdown: balanceBreakdown)
         
-        RoomieGroup.flat.bills.append(newBill)
+        bills.append(newBill)
     }
     
     func makePayment(@Binding bill: Bill, amount: Double, userIndex: Int){
