@@ -11,9 +11,9 @@ struct GroupSummaryView: View {
     var body: some View {
         VStack {
             ForEach(RoomieGroup.house.roomies, id: \.id) {
-                roomie in RoomiesDetail(name: roomie.name, expense: roomie.amountOwed.description)
+                roomie in RoomiesDetail(name: roomie.name, expense: "0.00")
             }
-            RoomiesDetail(name: "TOTAL", expense: RoomieGroup.house.totalAmountDue.description)
+            RoomiesDetail(name: "TOTAL", expense: "0.00")
         }
         .padding()
     }

@@ -42,8 +42,8 @@ struct HomeScreenView: View {
                     .font(.subheadline)
                     .foregroundColor(Color.secondary)
                 
-                // TODO: remove hard-coding here
-                Text("$"+RoomieGroup.house.roomies[0].amountOwed.description)
+                // TODO: return functionality
+                Text("$0.00")
                     .font(.largeTitle)
                 
                 HStack {
