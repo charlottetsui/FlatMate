@@ -54,9 +54,13 @@ struct PayExpenseView: View {
                         }
                         Spacer()
                         Button {
-                            //TODO: fix MAKEPAYMENT() CALL HERE!
-                            //let billBinding = Binding(get: { selectedBill ?? defaultBill }, set: { selectedBill = $0 })
-                           // vm.makePayment(bill: selectedBill ?? defaultBill, amount: expenseAmount, userIndex: 0)
+                            if let selectedBill = selectedBill {
+                                let nonOptionalBillBinding = Binding(
+                                            get: { selectedBill },
+                                            set: { newBill in self.selectedBill = newBill }
+                                        )
+                                vm.makePayment($flat: $flat, $bill: nonOptionalBillBinding, amount: expenseAmount, userIndex: 0)
+                           }
                             showSheet = false
                             openAppleWallet()
                         } label: {
