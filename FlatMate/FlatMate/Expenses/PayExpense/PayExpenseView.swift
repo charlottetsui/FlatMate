@@ -1,5 +1,5 @@
 //
-//  AddExpenseView.swift
+//  PayExpenseView.swift
 //  FlatMate
 //
 //  Created by Charlotte Tsui on 11/2/24.
@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct AddExpenseView: View {
+struct PayExpenseView: View {
     @Binding var showSheet: Bool
     @State var expenseAmount = 0.0
-    @State var expenseName = "Groceries"
-    @State var expenseDescription = "Description"
-    @StateObject var vm = BillViewModel()
-    
+    @State var expenseName = ""
+    @State var expenseDescription = ""
+    @State var selectedBill: Bill? // Changed to Bill? for better selection management
+    private let bills: [Bill] = [Bill(name: "Electricity", balance: 300), Bill(name: "Trash", balance: 50), Bill(name: "Water", balance: 100)]
+
     var body: some View {
         ZStack {
-            Color.red.ignoresSafeArea()
+            Color.green.ignoresSafeArea()
             VStack(alignment: .leading) {
                 Spacer()
                 VStack(alignment: .leading) {
@@ -34,28 +35,29 @@ struct AddExpenseView: View {
                 ZStack {
                     Color.white.ignoresSafeArea()
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Expense")
-                            .font(.headline)
-                        TextField("", text: $expenseName)
-                            .textFieldStyle(.roundedBorder)
-                            .font(.title2)
+                        Group {
+                            Text("Bill")
+                                .font(.headline)
+                            
+                            Picker("", selection: $selectedBill) {
+                                ForEach(bills, id: \.self) { bill in
+                                    Text("\(bill.name), \(String(format: "%.2f", bill.balance))")
+                                        .tag(bill as Bill?)
+                                }
+                            }
+                            .frame(width: 375, height: 40)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.secondary, lineWidth: 1))
+                        }
                         Spacer()
-                        Text("Description")
-                            .font(.headline)
-                        TextField("", text: $expenseDescription)
-                            .textFieldStyle(.roundedBorder)
-                            .font(.title2)
-                        Spacer()
-                        // TODO: FUNCTION CHECK!!
                         Button {
-                            vm.addExpense(name: expenseName, balance: expenseAmount, numRoommates: 1)
                             showSheet = false
                         } label: {
                             Text("Continue")
                                 .fontWeight(.bold)
                                 .padding()
                                 .frame(width: 375)
-                                .background(Color.red)
+                                .background(Color.green)
                                 .foregroundColor(Color.white)
                                 .cornerRadius(15)
                         }
@@ -69,5 +71,6 @@ struct AddExpenseView: View {
 }
 
 #Preview {
-    AddExpenseView(showSheet: .constant(true))
+    PayExpenseView(showSheet: .constant(true))
 }
+

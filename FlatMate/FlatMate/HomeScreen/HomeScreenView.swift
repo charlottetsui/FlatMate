@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeScreenView: View {
     @State var index = 0
     @State var showAddExpense = false
+    @State var showPayExpense = false
     
     var body: some View {
         NavigationStack {
@@ -33,7 +34,7 @@ struct HomeScreenView: View {
                 
                 HStack {
                     Button {
-                        //
+                        showPayExpense.toggle()
                     } label: {
                         ExpenseBox(image: "square.and.pencil", nameTop: "Pay", nameBottom: "Expense", color: Color.green)
                     }
@@ -58,6 +59,10 @@ struct HomeScreenView: View {
             AddExpenseView(showSheet: $showAddExpense)
                 .presentationDetents([.fraction(0.5)])
         }
+        .sheet(isPresented: $showPayExpense) {
+            PayExpenseView(showSheet: $showPayExpense)
+                .presentationDetents([.fraction(0.5)])
+        }
     }
 }
 
@@ -73,13 +78,18 @@ extension HomeScreenView {
                 Text(DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none))
                     .font(.title3)
                 Spacer()
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 25, height: 25)
-                Text(RoomieGroup.house.roomies[0].name)
-                    .font(.title3)
+                NavigationLink {
+                    //
+                } label: {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                    Text(RoomieGroup.house.roomies[0].name)
+                        .font(.title3)
+                }
             }
+            .foregroundColor(Color.primary)
         }
     }
     
@@ -122,9 +132,9 @@ struct MainView: View {
                     Label("Transaction", systemImage: "arrow.left.arrow.right")
                 }
             
-            TransactionView()
+            RoommateNavigationView()
                 .tabItem {
-                    Label("Profile", systemImage: "person.crop.circle")
+                    Label("My Group", systemImage: "person.crop.circle")
                 }
         }
     }
