@@ -9,7 +9,20 @@ import SwiftUI
 
 struct RoommateNavigationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "person.crop.circle")
+                        .resizable().frame(width: 50, height: 50)
+                    
+                    Text("NAME")
+                    Spacer()
+                }
+                .padding(50)
+                .background(Color.secondary.opacity(0.2))
+                .cornerRadius(15)
+            }
+        }
     }
 }
 
