@@ -25,7 +25,7 @@ struct HomeScreenView: View {
                     .foregroundColor(Color.secondary)
                 
                 // TODO: remove hard-coding here
-                Text(flat.roommateBalances[0].description)
+                Text("$"+flat.roommateBalances[0].description)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(25)
