@@ -11,7 +11,7 @@ FlatMate is a SwiftUI-based iOS app designed to make sharing expenses with roomm
 FlatMate was developed to simplify the process of sharing and managing expenses with roommates. With a clean user interface and intuitive navigation, users can easily add new expenses, make payments, and see an overview of the financial status of the group.
 
 ## Features
-- **Expense Tracking**: Add expenses and divide it between group members.
+- **Expense Tracking**: Add expenses and divide them between group members.
 - **Payment Processing**: Record payments made toward specific bills.
 - **Group Summary**: View the overall balance for each roommate.
 - **Invite Members**: Quickly send out an invite link for to add new members to your group.
