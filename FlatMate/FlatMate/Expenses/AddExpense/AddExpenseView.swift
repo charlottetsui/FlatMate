@@ -10,8 +10,8 @@ import SwiftUI
 struct AddExpenseView: View {
     @Binding var showSheet: Bool
     @State var expenseAmount = 0.0
-    @State var expenseName = "Groceries"
-    @State var expenseDescription = "Description"
+    @State var expenseName = ""
+    @State var expenseDescription = ""
     @StateObject var vm = BillViewModel()
     
     var body: some View {

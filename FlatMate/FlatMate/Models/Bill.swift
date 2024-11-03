@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Bill: Identifiable {
+struct Bill: Identifiable, Hashable {
     var id = UUID()
     var name: String
     var balance: Double
