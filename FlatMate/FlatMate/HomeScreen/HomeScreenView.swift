@@ -23,7 +23,7 @@ struct HomeScreenView: View {
                     .foregroundColor(Color.secondary)
                 
                 // TODO: remove hard-coding here
-                Text("$"+RoomieGroup.house.roomies[0].amountOwed.description)
+                Text("$0.00")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(25)

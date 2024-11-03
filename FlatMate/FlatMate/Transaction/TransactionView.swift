@@ -37,7 +37,7 @@ extension TransactionView {
                         .foregroundColor(Color.secondary)
                 }
                 Spacer()
-                Text("$"+bill.amount.description)
+                Text("$"+bill.balance.description)
             }
             .padding(15)
             .background(Color.secondary.opacity(0.2))
