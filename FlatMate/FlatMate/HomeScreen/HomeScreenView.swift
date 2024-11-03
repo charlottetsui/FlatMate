@@ -62,7 +62,7 @@ struct HomeScreenView: View {
         }
         .sheet(isPresented: $showPayExpense) {
             PayExpenseView(flat: $flat, showSheet: $showPayExpense)
-                .presentationDetents([.fraction(0.5)])
+                .presentationDetents([.fraction(0.4)])
         }
     }
 }

@@ -14,7 +14,14 @@ struct GroupSummaryView: View {
             ForEach(0..<flat.roomies.count, id: \.self) { i in
                 RoomiesDetail(name: flat.roomies[i].name, expense: flat.roommateBalances[i].description)
                         }
-            RoomiesDetail(name: "TOTAL", expense: flat.totalAmountDue.description)
+            Text("Total")
+                .fontWeight(.bold)
+                .font(.headline)
+                .foregroundColor(Color.secondary)
+                .padding(.top)
+            Text("\(flat.totalAmountDue.description)")
+                .font(.title)
+            
         }
         .padding()
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PassKit
 
 struct PayExpenseView: View {
     @Binding var flat: RoomieGroup
@@ -47,7 +48,7 @@ struct PayExpenseView: View {
                                         .tag(bill as Bill?)
                                 }
                             }
-                            .frame(width: 375, height: 40)
+                            .frame(width: 375, height: 50)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.secondary, lineWidth: 1))
                         }
@@ -57,6 +58,7 @@ struct PayExpenseView: View {
                             //let billBinding = Binding(get: { selectedBill ?? defaultBill }, set: { selectedBill = $0 })
                            // vm.makePayment(bill: selectedBill ?? defaultBill, amount: expenseAmount, userIndex: 0)
                             showSheet = false
+                            openAppleWallet()
                         } label: {
                             Text("Continue")
                                 .fontWeight(.bold)
@@ -79,3 +81,16 @@ struct PayExpenseView: View {
  //   PayExpenseView(showSheet: .constant(true))
 //}
 
+
+extension PayExpenseView {
+    
+    func openAppleWallet() {
+            if PKPassLibrary.isPassLibraryAvailable() {
+                let passLibrary = PKPassLibrary()
+                passLibrary.openPaymentSetup()
+            } else {
+                print("Error")
+            }
+        }
+    
+}
