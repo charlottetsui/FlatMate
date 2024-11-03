@@ -16,10 +16,4 @@ struct Bill: Identifiable {
     var paid: Bool = false
     
     
-    // Example usage for testing
-    static var power: Bill = Bill(name: "Electricity", balance: 300)
-    static var trash: Bill = Bill(name: "Trash", balance: 50)
-    static var water: Bill = Bill(name: "Water", balance: 100)
-    static var recycling: Bill = Bill(name: "Recycling", balance: 25)
-    
 }

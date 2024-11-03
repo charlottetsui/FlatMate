@@ -10,7 +10,7 @@ import SwiftUI
 struct TransactionView: View {
     var body: some View {
         ScrollView {
-            ForEach(RoomieGroup.house.bills, id: \.id) {
+            ForEach(RoomieGroup.flat.bills, id: \.id) {
                 bill in TransactionBox(bill: bill)
             }
         }
