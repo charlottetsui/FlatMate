@@ -13,17 +13,29 @@ struct LandScreenView: View {
             VStack {
                 Image("LandScreenImage")
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFit().ignoresSafeArea()
+                    .shadow(radius: 5.0)
+                
                 Spacer()
-                Text("Manage your shared expenses with ease.")
+                Text("FlatMate")
                     .fontWeight(.bold)
                     .font(.largeTitle)
+                Text("\"For Fair, Friendly, and Easy Balance\"")
+                    .font(.title3)
+                    .italic()
+                    .foregroundColor(Color.secondary)
+                    .padding(10)
+                Spacer()
                 NavigationLink {
-                    HomeScreenView()
+                    MainView()
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     Text("Continue")
                         .padding()
+                        .padding(.horizontal, 35)
+                        .background(Color.primary)
+                        .foregroundColor(.white)
+                        .cornerRadius(15)
                 }
             }
         }

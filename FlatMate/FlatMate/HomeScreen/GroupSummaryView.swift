@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct GroupSummaryView: View {
+    @Binding var flat: RoomieGroup
     var body: some View {
         VStack {
-            RoomiesDetail(name: "NAME", expense: "EXPENSE")
-            RoomiesDetail(name: "NAME", expense: "EXPENSE")
-            RoomiesDetail(name: "NAME", expense: "EXPENSE")
-            RoomiesDetail(name: "NAME", expense: "EXPENSE")
+            ForEach(0..<flat.roomies.count, id: \.self) { i in
+                RoomiesDetail(name: flat.roomies[i].name, expense: flat.roommateBalances[i].description)
+                        }
+            RoomiesDetail(name: "TOTAL", expense: flat.totalAmountDue.description)
         }
         .padding()
     }
 }
 
-#Preview {
-    GroupSummaryView()
-}
+//#Preview {
+    //GroupSummaryView()
+//}
 
 extension GroupSummaryView {
     
@@ -34,7 +35,7 @@ extension GroupSummaryView {
                 Text(name)
                     .font(.headline)
                 Spacer()
-                Text(expense)
+                Text("$"+expense)
                     .font(.subheadline)
             }
             .padding(25) // padding for background
