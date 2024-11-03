@@ -44,18 +44,15 @@ struct AddExpenseView: View {
                             .textFieldStyle(.roundedBorder)
                             .font(.title2)
                         Spacer()
-                        HStack {
-                            Button {
-                                //
-                            } label: {
-                                Text("Continue")
-                                    .fontWeight(.bold)
-                                    .padding()
-                                    .frame(width: .infinity)
-                                    .background(Color.red)
-                                    .foregroundColor(Color.white)
-                                    .cornerRadius(15)
-                            }
+                        Button {
+                            //
+                        } label: {
+                            Text("Continue")
+                                .fontWeight(.bold)
+                                .padding()
+                                .background(Color.red)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(15)
                         }
                     }
                     .padding()
