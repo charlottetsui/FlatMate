@@ -8,13 +8,13 @@ FlatMate is a SwiftUI-based iOS app designed to make sharing expenses with roomm
 - [Credits and Acknowledgments](#credits-and-acknowledgments)
 
 ## Overview
-FlatMate was developed to simplify the process of sharing and managing expenses with roommates. With a clean user interface and intuitive navigation, users can easily add new expenses, make payments, and see an overview of the financial status of the group.
+FlatMate was developed to simplify the process of sharing and managing expenses with roommates. With a clean user interface and intuitive navigation, users can easily add new expenses, make payments, and see an overview of the financial status of the group, all in a single app.
 
 ## Features
 - **Expense Tracking**: Add expenses and divide them between group members.
-- **Payment Processing**: Record payments made toward specific bills.
+- **Payment Processing**: Record payments made toward specific bills. With the implementation of the PassKit framework, users can pay off bills and expenses to roommates using Apple Wallet.
 - **Group Summary**: View the overall balance for each roommate.
-- **Invite Members**: Quickly send out an invite link for to add new members to your group.
+- **Invite Members**: Quickly send out a personalized invite link to roommates.
 
 ## Credits and Acknowledgments
 This app was developed by Lizzie Coats and Charlotte Tsui using Swift and SwiftUI. ChatGPT was utilizied to debug errors such as type conversion issues, displaying real time data changes, as well as general syntax and logic errors that were encountered throughout the project.
