@@ -17,5 +17,5 @@ FlatMate was developed to simplify the process of sharing and managing expenses 
 - **Invite Members**: Quickly send out a personalized invite link to roommates.
 
 ## Credits and Acknowledgments
-This app was developed by Lizzie Coats and Charlotte Tsui using Swift and SwiftUI. ChatGPT was utilizied to debug errors such as type conversion issues, displaying real time data changes, as well as general syntax and logic errors that were encountered throughout the project.
+This app was developed collaboratively by Lizzie Coats and Charlotte Tsui, leveraging Swift and SwiftUI.
 
