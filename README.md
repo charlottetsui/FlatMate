@@ -1,4 +1,4 @@
-# FlatMate
+# FlatMate (HackNC 2024)
 
 FlatMate is a SwiftUI-based iOS app designed to make sharing expenses with roommates easy and efficient. The app allows users to keep track of who owes what, manage payments, and streamline financial management among group members.
 
